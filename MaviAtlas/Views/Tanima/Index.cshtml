@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Gördüğüm canlı ne?";
+    ViewData["Arka"] = "arka-balina";
+    var alanlar = (List<string>)ViewBag.Alanlar;
+    var govdeler = (List<string>)ViewBag.Govdeler;
+}
+
+<h1>Gördüğüm canlı ne?</h1>
+<p>Canlıyı nerede ve nasıl gördüğünü seç, olası türleri birlikte daraltalım.</p>
+
+<form asp-action="Sonuc" method="get" class="filtre">
+    <label>
+        Yaşam alanı
+        <select name="alan">
+            <option value="">Bilmiyorum</option>
+            @foreach (var a in alanlar)
+            {
+                <option value="@a">@a</option>
+            }
+        </select>
+    </label>
+    <label>
+        Vücut yapısı
+        <select name="govde">
+            <option value="">Bilmiyorum</option>
+            @foreach (var g in govdeler)
+            {
+                <option value="@g">@g</option>
+            }
+        </select>
+    </label>
+    <button type="submit" class="btn btn-primary">Olası türleri göster</button>
+</form>

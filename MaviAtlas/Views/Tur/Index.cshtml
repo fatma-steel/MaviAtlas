@@ -1,0 +1,31 @@
+﻿@model List<MaviAtlas.Models.Tur>
+	@{
+		ViewData["Title"]="Türler";
+		var gruplar=(List<string>)ViewBag.Gruplar;
+	}
+	<h1>Deniz canlıları </h1>
+	<p>@Model.Count tür listeleniyor</p>
+
+	<form method="get">
+		<label>Grup
+			<select name="grup">
+				<option value="">Tümü</option>
+				@foreach (var g in gruplar)
+				{
+						<option value="@g" selected="@(g==(string?)ViewBag.SeciliGrup)">@g</option>
+					}
+			</select>
+		</label>
+		<button type="submit" class="btn btn-primary">Filtrele</button>
+	</form>
+	<div class="kartlar">
+			@foreach (var t in Model)
+		{
+			<div class="kart">
+				<h3>@t.TurkceAd</h3>
+				<p><em>@t.BilimselAd</em></p>
+				<p> @t.Grup - @t.YasamAlani</p>
+			</div>
+		}
+	</div>
+		
