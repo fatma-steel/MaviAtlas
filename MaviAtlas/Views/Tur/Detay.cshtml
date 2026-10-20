@@ -1,0 +1,25 @@
+﻿@model MaviAtlas.Models.Tur
+@{
+    ViewData["Title"] = Model.TurkceAd;
+    ViewData["Arka"] = "arka-deniz";
+}
+
+<p><a asp-action="Index">Türler</a> / @Model.TurkceAd</p>
+
+<div class="detay">
+    <img src="~/images/turler/@(Model.Id).jpg" alt="@Model.TurkceAd" class="detay-foto" onerror="this.style.display='none'" />
+    <div>
+        <h1>@Model.TurkceAd</h1>
+        <p class="bilimsel"><em>@Model.BilimselAd</em></p>
+        <table class="bilgi">
+            <tr><th>Grup</th><td>@Model.Grup</td></tr>
+            <tr><th>Yaşam alanı</th><td>@Model.YasamAlani</td></tr>
+            <tr><th>Vücut yapısı</th><td>@Model.Govde</td></tr>
+        </table>
+        <p>@(string.IsNullOrEmpty(Model.Aciklama) ? "Açıklama eklenecek." : Model.Aciklama)</p>
+        @if (!string.IsNullOrEmpty(Model.FotoKaynak))
+        {
+            <p class="uyari">Fotoğraf: @Model.FotoKaynak</p>
+        }
+    </div>
+</div>

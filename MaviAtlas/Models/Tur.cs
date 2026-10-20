@@ -8,5 +8,7 @@ public class Tur
     public string Grup { get; set; } = "";
     public string YasamAlani { get; set; } = "";
     public string Govde { get; set; } = "";
+    public string Aciklama { get; set; } = "";
+    public string FotoKaynak { get; set; } = ""; 
 }
 

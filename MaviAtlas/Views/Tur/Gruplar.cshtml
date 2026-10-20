@@ -1,0 +1,22 @@
+﻿@model List<IGrouping<string, MaviAtlas.Models.Tur>>
+@{
+    ViewData["Title"] = "Gruplar";
+    ViewData["Arka"] = "arka-deniz";
+}
+
+<h1>Gruplara göre türler</h1>
+<p><a asp-action="Index">Tüm türleri listele</a></p>
+
+@foreach (var grup in Model)
+{
+    <h2>@($"{grup.Key} ({grup.Count()} tür)")</h2>
+    <div class="kartlar">
+        @foreach (var t in grup)
+        {
+            <div class="kart">
+                <h3><a asp-action="Detay" asp-route-id="@t.Id">@t.TurkceAd</a></h3>
+                <p><em>@t.BilimselAd</em></p>
+            </div>
+        }
+    </div>
+}

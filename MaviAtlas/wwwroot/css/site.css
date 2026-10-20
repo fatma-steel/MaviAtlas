@@ -89,6 +89,7 @@ main a {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 20px;
     margin-top: 20px;
+    margin-bottom: 8px;
 }
 
 .kart {
@@ -141,7 +142,39 @@ main a {
         }
 }
 
-.uyari 
-{
+.uyari {
     color:#bae6fd; font-size: 14px; margin-top: 24px;
 }
+
+.bilgi th {
+    text-align:left; padding: 6px 24px 6px 0;
+}
+
+.bilgi td {
+    padding: 6px 0;
+}
+
+.kart-foto {
+    width: 100%; height: 160px; object-fit:cover; border-radius:10px; margin-bottom: 12px;
+}
+
+.kart h3 a {
+color: #e0f2fe; text-decoration:none;
+}
+
+.detay {
+    display: flex; flex-wrap: wrap; gap: 28px; margin-top: 16px;
+}
+
+.detay-foto {
+    width:100%; max-width: 420px; border-radius: 16px; object-fit: cover;
+}
+
+.detay > div { 
+    flex: 1 1 320px; 
+}
+
+main h2 {
+    margin-top: 32px;
+}
+

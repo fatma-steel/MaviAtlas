@@ -5,6 +5,7 @@
 	}
 	<h1>Deniz canlıları </h1>
 	<p>@Model.Count tür listeleniyor</p>
+	<p><a asp-action="Gruplar">Gruplara göre göster</a></p>
 
 	<form method="get">
 		<label>Grup
@@ -21,11 +22,14 @@
 	<div class="kartlar">
 			@foreach (var t in Model)
 		{
-			<div class="kart">
-				<h3>@t.TurkceAd</h3>
-				<p><em>@t.BilimselAd</em></p>
-				<p> @t.Grup - @t.YasamAlani</p>
-			</div>
+		<div class="kart">
+			<a asp-action="Detay" asp-route-id="@t.Id">
+				<img src="~/images/turler/@(t.Id).jpg" alt="@t.TurkceAd" class="kart-foto" onerror="this.style.display='none'" />
+			</a>
+			<h3><a asp-action="Detay" asp-route-id="@t.Id">@t.TurkceAd</a></h3>
+			<p><em>@t.BilimselAd</em></p>
+			<p>@t.Grup - @t.YasamAlani</p>
+		</div>
 		}
 	</div>
 		
