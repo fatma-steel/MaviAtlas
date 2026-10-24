@@ -1,0 +1,12 @@
+@model MaviAtlas.Models.Tur
+
+@if (Model != null)
+{   
+    <a asp-controller="Tur" asp-action="Detay" asp-route-id="@Model.Id" class="d-none d-lg-block text-end bg-light p-2 rounded border ms-3 text-decoration-none">
+    <div class="d-none d-lg-block text-end bg-light p-2 rounded border ms-3" style="max-width: 300px;">
+        <div class="text-muted" style="font-size: 0.75rem;">Kendimi Şanslı Hissediyorum</div>
+        <div class="fw-bold text-primary" style="font-size: 0.9rem;">@Model.TurkceAd</div>
+        <div class="fst-italic text-secondary" style="font-size: 0.8rem;">@Model.BilimselAd</div>
+    </div>
+    </a>
+}
