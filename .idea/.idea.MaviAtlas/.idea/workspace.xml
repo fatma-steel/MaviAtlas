@@ -15,9 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69aa3fcb-a1f6-4f6c-a1db-5c0cda7ac6ed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/MaviAtlas/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MaviAtlas/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaviAtlas/Views/Tanima/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MaviAtlas/Views/Tanima/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MaviAtlas/Views/Tanima/Sonuc.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/MaviAtlas/Views/Tanima/Sonuc.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MaviAtlas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MaviAtlas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ma.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3L5w336O91ehfsnYMtObF8uwdQH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
