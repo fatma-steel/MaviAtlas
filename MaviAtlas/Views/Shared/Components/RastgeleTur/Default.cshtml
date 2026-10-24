@@ -2,11 +2,17 @@
 
 @if (Model != null)
 {   
-    <a asp-controller="Tur" asp-action="Detay" asp-route-id="@Model.Id" class="d-none d-lg-block text-end bg-light p-2 rounded border ms-3 text-decoration-none">
-    <div class="d-none d-lg-block text-end bg-light p-2 rounded border ms-3" style="max-width: 300px;">
-        <div class="text-muted" style="font-size: 0.75rem;">Kendimi Şanslı Hissediyorum</div>
-        <div class="fw-bold text-primary" style="font-size: 0.9rem;">@Model.TurkceAd</div>
-        <div class="fst-italic text-secondary" style="font-size: 0.8rem;">@Model.BilimselAd</div>
-    </div>
+    <a asp-controller="Tur" asp-action="Detay" asp-route-id="@Model.Id" 
+       class="d-none d-lg-flex align-items-center text-decoration-none text-dark bg-light rounded-pill border ms-3 shadow-sm"
+       style="padding: 4px 16px 4px 4px; transition: 0.2s;">
+        
+        @if (!string.IsNullOrEmpty(Model.FotoKaynak))
+        {
+            <img src="@Model.FotoKaynak" 
+                 alt="@Model.TurkceAd" 
+                 class="rounded-circle object-fit-cover me-2" 
+                 style="width: 36px; height: 36px;" />
+        }
+        <span class="fw-medium text-truncate" style="max-width: 150px;">@Model.TurkceAd</span>
     </a>
 }

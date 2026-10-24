@@ -36,7 +36,7 @@ public class MaviAtlasContext:DbContext
 
     new Tur { Id = 7, TurkceAd = "Kalamar", BilimselAd = "Loligo vulgaris", Grup = "Yumuşakça", YasamAlani = "Açık su", Govde = "Yumuşak",
               Aciklama = "Kalamar (Loligo vulgaris), kafadanbacaklılar grubundan, torpido biçimli uzun gövdeli bir yumuşakçadır. Gövdenin arka kısmında baklava biçimli yüzgeçleri, başında ise vantuzlu sekiz kolu ve avı yakalamaya yarayan iki uzun dokunacı vardır. Kıyıya yakın sularda yaşar, balık ve kabuklularla beslenir; tehlike anında mürekkep salar ve rengini hızla değiştirebilir.",
-              FotoKaynak = "marsupium photography, CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0), via Wikimedia Commons" },
+              FotoKaynak = "https://upload.wikimedia.org/wikipedia/commons/9/92/Dosidicus_gigas.jpg?utm_source=tr.wikipedia.org&utm_campaign=index&utm_content=original" },
 
     new Tur { Id = 8, TurkceAd = "Levrek", BilimselAd = "Dicentrarchus labrax", Grup = "Balık", YasamAlani = "Kıyı ve lagün", Govde = "Pullu",
               Aciklama = "Levrek (Dicentrarchus labrax), gümüşi renkli, uzun gövdeli ve iki ayrı sırt yüzgeci olan yırtıcı bir balıktır. Kıyı sularında, lagünlerde ve nehir ağızlarında yaşar. Küçük balıklar ve kabuklularla beslenir.",
