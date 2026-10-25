@@ -4,15 +4,26 @@
 {   
     <a asp-controller="Tur" asp-action="Detay" asp-route-id="@Model.Id" 
        class="d-none d-lg-flex align-items-center text-decoration-none text-dark bg-light rounded-pill border ms-3 shadow-sm"
-       style="padding: 4px 16px 4px 4px; transition: 0.2s;">
+       style="width: 200px; height: 50px; padding: 4px 12px 4px 4px; transition: 0.2s;">
         
         @if (!string.IsNullOrEmpty(Model.FotoKaynak))
-        {
+        {   
             <img src="@Model.FotoKaynak" 
                  alt="@Model.TurkceAd" 
-                 class="rounded-circle object-fit-cover me-2" 
-                 style="width: 36px; height: 36px;" />
+                 class="rounded-circle object-fit-cover me-2 flex-shrink-0" 
+                 style="width: 40px; height: 40px;" />
         }
-        <span class="fw-medium text-truncate" style="max-width: 150px;">@Model.TurkceAd</span>
+        else
+        {
+            <div class="rounded-circle bg-secondary bg-opacity-25 text-secondary d-flex align-items-center justify-content-center me-2 flex-shrink-0" 
+                 style="width: 40px; height: 40px; font-weight: bold; font-size: 1.2rem;">
+                @(Model.TurkceAd.FirstOrDefault())
+            </div>
+        }
+        
+        <div class="d-flex flex-column justify-content-center overflow-hidden w-100">
+            <span class="text-muted fw-bold" style="font-size: 0.6rem; letter-spacing: 0.5px; line-height: 1;">GÜNÜN CANLISI</span>
+            <span class="fw-medium text-truncate" style="font-size: 0.95rem; line-height: 1.2;" title="@Model.TurkceAd">@Model.TurkceAd</span>
+        </div>
     </a>
 }
