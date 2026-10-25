@@ -11,22 +11,19 @@
 </head>
 <body class="@(ViewData["Arka"] ?? "arka-deniz")">
     <partial name="_Header" />
-
-    <div class="container-fluid px-4 px-lg-5">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container-fluid px-4 px-lg-5">okay 
-            &copy; 2026 - Mavi Atlas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Hakkında</a>
+        <div class="container">
+            &copy; 2026 - Mavi Atlas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Bileşeni sayfanın sonuna, bağımsız bir şekilde çağırıyoruz -->
+    @await Component.InvokeAsync("RastgeleTur")
 </body>
 </html>

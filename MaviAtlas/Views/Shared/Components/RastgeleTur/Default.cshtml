@@ -1,29 +1,36 @@
 @model MaviAtlas.Models.Tur
 
 @if (Model != null)
-{   
-    <a asp-controller="Tur" asp-action="Detay" asp-route-id="@Model.Id" 
-       class="d-none d-lg-flex align-items-center text-decoration-none text-dark bg-light rounded-pill border ms-3 shadow-sm"
-       style="width: 200px; height: 50px; padding: 4px 12px 4px 4px; transition: 0.2s;">
+{
+    <div class="position-fixed shadow rounded-3 overflow-hidden d-flex flex-column border border-light-subtle" 
+         style="top: 80px; right: 20px; width: 230px; z-index: 1050; background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px);">
         
-        @if (!string.IsNullOrEmpty(Model.FotoKaynak))
-        {   
-            <img src="@Model.FotoKaynak" 
-                 alt="@Model.TurkceAd" 
-                 class="rounded-circle object-fit-cover me-2 flex-shrink-0" 
-                 style="width: 40px; height: 40px;" />
-        }
-        else
-        {
-            <div class="rounded-circle bg-secondary bg-opacity-25 text-secondary d-flex align-items-center justify-content-center me-2 flex-shrink-0" 
-                 style="width: 40px; height: 40px; font-weight: bold; font-size: 1.2rem;">
-                @(Model.TurkceAd.FirstOrDefault())
-            </div>
-        }
-        
-        <div class="d-flex flex-column justify-content-center overflow-hidden w-100">
-            <span class="text-muted fw-bold" style="font-size: 0.6rem; letter-spacing: 0.5px; line-height: 1;">GÜNÜN CANLISI</span>
-            <span class="fw-medium text-truncate" style="font-size: 0.95rem; line-height: 1.2;" title="@Model.TurkceAd">@Model.TurkceAd</span>
+        <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom" style="background-color: rgba(13, 110, 253, 0.1);">
+            <span class="text-primary fw-bold" style="font-size: 0.75rem; letter-spacing: 0.2px;">GÜNÜN CANLISI</span>
+            <button type="button" class="btn-close" style="font-size: 0.5rem;" 
+                    onclick="this.closest('.position-fixed').remove(); return false;" aria-label="Kapat"></button>
         </div>
-    </a>
+        
+        <a asp-controller="Tur" asp-action="Detay" asp-route-id="@Model.Id" class="text-decoration-none text-dark p-3 d-block" 
+           style="transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='rgba(0,0,0,0.03)'" onmouseout="this.style.backgroundColor='transparent'">
+            
+            @if (!string.IsNullOrEmpty(Model.FotoKaynak))
+            {
+                <img src="@Model.FotoKaynak" alt="@Model.TurkceAd" class="w-100 rounded mb-2 object-fit-cover shadow-sm" style="height: 110px;" />
+            }
+
+            <h6 class="fw-bold text-dark mb-2 text-truncate" title="@Model.TurkceAd">@Model.TurkceAd</h6>
+            
+            <div class="d-flex flex-column gap-1 text-muted" style="font-size: 0.8rem;">
+                <div class="d-flex justify-content-between border-bottom pb-1 border-secondary-subtle">
+                    <span class="fw-medium">Grup:</span>
+                    <span>@Model.Grup</span>
+                </div>
+                <div class="d-flex justify-content-between pt-1">
+                    <span class="fw-medium">Gövde:</span>
+                    <span>@Model.Govde</span>
+                </div>
+            </div>
+        </a>
+    </div>
 }
