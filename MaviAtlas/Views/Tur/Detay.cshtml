@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = Model.TurkceAd;
     ViewData["Arka"] = "arka-deniz";
+    
+    string favoriCookie = Context.Request.Cookies["MaviAtlasFavoriler"] ?? "";
+    bool isFavori = favoriCookie.Split(',', StringSplitOptions.RemoveEmptyEntries).Contains(Model.Id.ToString());
+    
+    string yildizKarakteri = isFavori ? "★" : "☆";
 }
 
 <p><a asp-action="Index">Türler</a> / @Model.TurkceAd</p>
@@ -9,7 +14,12 @@
 <div class="detay">
     <img src="~/images/turler/@(Model.Id).jpg" alt="@Model.TurkceAd" class="detay-foto" onerror="this.style.display='none'" />
     <div>
-        <h1>@Model.TurkceAd</h1>
+        <h1>
+            @Model.TurkceAd 
+            <span id="btn-favori" data-id="@Model.Id" class="favori-ikon" title="Favorilere Ekle/Çıkar">
+                @yildizKarakteri
+            </span>
+        </h1>
         <p class="bilimsel"><em>@Model.BilimselAd</em></p>
         <table class="bilgi">
             <tr><th>Grup</th><td>@Model.Grup</td></tr>
@@ -23,3 +33,45 @@
         }
     </div>
 </div>
+
+<style>
+    .favori-ikon {
+        cursor: pointer;
+        color: #FFD700;
+        user-select: none;
+        transition: transform 0.2s ease;
+        display: inline-block;
+    }
+    .favori-ikon:active {
+        transform: scale(0.8);
+    }
+</style>
+
+<script>
+    document.getElementById('btn-favori').addEventListener('click', async function () {
+        const turId = this.getAttribute('data-id');
+        const yildizSpan = this;
+
+        try {
+            const response = await fetch(`/Tur/ToggleFavori/${turId}`, {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                
+                if (result.basarili) {
+                    // İşlem başarılı, yıldızı değiştir
+                    yildizSpan.innerText = result.isFavori ? "★" : "☆";
+                } else if (result.uyari) {
+                    // Limit aşıldı, Controller'dan gelen uyarı mesajını göster
+                    alert(result.uyari);
+                }
+            } else {
+                console.error("Favori işlemi sırasında bir hata oluştu.");
+            }
+        } catch (error) {
+            console.error("Sunucuya ulaşılamadı:", error);
+        }
+    });
+</script>
