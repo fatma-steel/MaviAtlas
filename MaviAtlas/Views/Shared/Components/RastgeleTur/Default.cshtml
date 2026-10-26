@@ -16,7 +16,7 @@
             
             @if (!string.IsNullOrEmpty(Model.FotoKaynak))
             {
-                <img src="@Model.FotoKaynak" alt="@Model.TurkceAd" class="w-100 rounded mb-2 object-fit-cover shadow-sm" style="height: 110px;" />
+               <img src="~/images/turler/@(Model.Id).jpg" alt="@Model.TurkceAd" class="w-100 rounded mb-2 object-fit-cover shadow-sm" style="height: 110px;" onerror="this.style.display='none'" />
             }
 
             <h6 class="fw-bold text-dark mb-2 text-truncate" title="@Model.TurkceAd">@Model.TurkceAd</h6>
