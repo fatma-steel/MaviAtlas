@@ -14,6 +14,9 @@
         @foreach (var t in grup)
         {
             <div class="kart">
+                <a asp-action="Detay" asp-route-id="@t.Id">
+                    <img src="~/images/turler/@(t.Id).jpg"  alt="@t.TurkceAd"  class="kart-foto" onerror="this.style.display='none'"/>
+                </a>
                 <h3><a asp-action="Detay" asp-route-id="@t.Id">@t.TurkceAd</a></h3>
                 <p><em>@t.BilimselAd</em></p>
             </div>
