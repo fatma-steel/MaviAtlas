@@ -16,9 +16,13 @@
     <div>
         <h1>
             @Model.TurkceAd 
-            <span id="btn-favori" data-id="@Model.Id" class="favori-ikon" title="Favorilere Ekle/Çıkar">
-                @yildizKarakteri
-            </span>
+            @Html.ActionLink(
+                linkText: isFavori ? "★" : "☆",
+                actionName: "ToggleFavori",
+                controllerName: "Tur",
+                routeValues: new { id = Model.Id },
+                htmlAttributes: new { id = "btn-favori", @class = "favori-ikon", title = "Favorilere Ekle/Çıkar" }
+            )
         </h1>
         <p class="bilimsel"><em>@Model.BilimselAd</em></p>
         <table class="bilgi">
@@ -48,23 +52,19 @@
 </style>
 
 <script>
-    document.getElementById('btn-favori').addEventListener('click', async function () {
-        const turId = this.getAttribute('data-id');
+    document.getElementById('btn-favori').addEventListener('click', async function (e) {
+        e.preventDefault();
+        const url = this.href;
         const yildizSpan = this;
 
         try {
-            const response = await fetch(`/Tur/ToggleFavori/${turId}`, {
-                method: 'POST'
-            });
+            const response = await fetch(url, { method: 'POST' });
 
             if (response.ok) {
                 const result = await response.json();
-                
                 if (result.basarili) {
                     yildizSpan.innerText = result.isFavori ? "★" : "☆";
-                }
-                
-                else if (result.uyari) {
+                } else if (result.uyari) {
                     alert(result.uyari);
                 }
             } else {
