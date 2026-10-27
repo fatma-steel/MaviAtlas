@@ -61,10 +61,10 @@
                 const result = await response.json();
                 
                 if (result.basarili) {
-                    // İşlem başarılı, yıldızı değiştir
                     yildizSpan.innerText = result.isFavori ? "★" : "☆";
-                } else if (result.uyari) {
-                    // Limit aşıldı, Controller'dan gelen uyarı mesajını göster
+                }
+                
+                else if (result.uyari) {
                     alert(result.uyari);
                 }
             } else {

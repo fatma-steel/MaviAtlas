@@ -42,17 +42,15 @@ public class TurController : Controller
         string strId = id.ToString();
         bool isFavori = false;
     
-        // Eğer tıklanan canlı zaten favoriyse, favorilerden çıkar (Toggle kapama durumu)
         if (favoriler.Contains(strId))
         {
             favoriler.Remove(strId);
         }
         else
         {
-            // Tıklanan canlı favori değil ama listede BAŞKA bir favori var
+         
             if (favoriler.Count >= 1)
             {
-                // Mevcut favorinin adını veritabanından bulalım
                 if (int.TryParse(favoriler.First(), out int mevcutFavoriId))
                 {
                     var mevcutCanli = _db.Turler.FirstOrDefault(t => t.Id == mevcutFavoriId);
@@ -63,11 +61,10 @@ public class TurController : Controller
                     }
                 }
             
-                // Eğer veritabanında bulunamazsa varsayılan hata dön
+   
                 return Json(new { basarili = false, isFavori = false, uyari = "Zaten bir favori canlınız var!" });
             }
 
-            // Listede hiç favori yoksa, bu canlıyı ekle
             favoriler.Add(strId);
             isFavori = true;
         }
