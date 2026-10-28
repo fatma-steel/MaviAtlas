@@ -120,7 +120,7 @@ main a {
 }
 
     .hero h1 {
-        font-size: 3rem;
+        font-size:3rem;
         font-weight: 700;
         color: #ffffff;
     }
@@ -131,6 +131,7 @@ main a {
         font-size: 1.15rem;
         color: #e0f2fe;
     }
+
 
 @media (max-width: 576px) {
     .hero {
@@ -178,3 +179,15 @@ main h2 {
     margin-top: 32px;
 }
 
+.navbar-brand img{ 
+    height: 84px; width: auto; 
+}
+
+@media (max-width: 576px) {
+    .navbar-brand img { height: 36px;}
+}
+
+.navbar .nav-link {
+    font-size: 1.3rem;
+    padding: 0.6rem 1rem;
+}

@@ -1,7 +1,12 @@
-<header> @*PartialView*@
+<header>
+    @*PartialView*@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mavi Atlas</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <picture>
+                    <source media="(max-width: 576px)" srcset="~/images/logo-header.png" />
+                    <img src="~/images/logo-tam.png" alt="Mavi Atlas" />
+                </picture> </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,8 +26,6 @@
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Hakkında</a>
                     </li>
                 </ul>
-                
-            
             </div>
         </div>
     </nav>
